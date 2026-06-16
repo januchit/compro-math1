@@ -1,0 +1,147 @@
+/* ============================================================
+   Flipbook reader — anime themed
+   ============================================================ */
+
+.reader-body {
+  height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+
+/* ---- Top bar ---- */
+.reader-bar {
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 18px; height: 58px; flex: 0 0 auto;
+  background: rgba(246, 247, 253, .85); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line); z-index: 20;
+}
+.reader-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--ink-soft); font-weight: 600; font-size: 14.5px;
+  padding: 8px 12px; border-radius: 10px;
+}
+.reader-back:hover { background: var(--accent-bg); color: var(--accent); text-decoration: none; }
+.reader-title {
+  flex: 1; text-align: center; font-family: var(--serif);
+  font-size: 17px; font-weight: 600; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.reader-actions { display: flex; gap: 8px; }
+
+.rb {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  width: 40px; height: 40px; border-radius: 11px; cursor: pointer;
+  background: #fff; border: 1px solid var(--line); color: var(--ink-soft);
+  transition: all .15s ease; font-family: var(--sans); font-size: 14px; font-weight: 600;
+}
+.rb:hover { color: var(--accent); border-color: var(--accent-soft); background: var(--accent-bg); text-decoration: none; transform: translateY(-1px); }
+.rb:active { transform: translateY(0); }
+.rb.wide { width: auto; padding: 0 18px; height: 42px; }
+.rb:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+/* ---- Loader ---- */
+.loader {
+  position: fixed; inset: 0; z-index: 30;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  background: linear-gradient(160deg, var(--bg-1), var(--bg-3));
+  transition: opacity .4s ease;
+}
+.loader.hide { opacity: 0; pointer-events: none; }
+.loader p { color: var(--ink-soft); font-weight: 500; font-family: var(--serif); font-size: 16px; }
+.loader-book { display: flex; gap: 7px; }
+.loader-book span {
+  width: 10px; height: 36px; border-radius: 4px;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  animation: bookpulse 1.1s ease-in-out infinite;
+}
+.loader-book span:nth-child(2) { animation-delay: .15s; }
+.loader-book span:nth-child(3) { animation-delay: .3s; }
+.loader-book span:nth-child(4) { animation-delay: .45s; }
+@keyframes bookpulse { 0%,100% { transform: scaleY(.55); opacity: .5; } 50% { transform: scaleY(1); opacity: 1; } }
+
+/* ---- Stage ---- */
+.stage {
+  flex: 1; position: relative; display: flex; align-items: center; justify-content: center;
+  padding: 26px 70px; min-height: 0; overflow: hidden;
+}
+
+.book-frame {
+  position: relative;
+  filter: drop-shadow(0 30px 60px rgba(40, 50, 120, .28));
+  max-width: 100%; max-height: 100%;
+}
+
+/* The open-book spread */
+.book-spread {
+  display: flex; position: relative;
+  background: #fff; border-radius: 8px; overflow: hidden;
+}
+/* center spine shadow */
+.book-spread.two-page::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 60px;
+  transform: translateX(-50%); pointer-events: none; z-index: 5;
+  background: linear-gradient(90deg, transparent, rgba(40,40,80,.13) 46%, rgba(40,40,80,.18) 50%, rgba(40,40,80,.13) 54%, transparent);
+}
+.book-spread canvas {
+  display: block; height: auto;
+  background: #fff;
+}
+.page-slot { position: relative; }
+
+/* page-turn animation */
+.book-spread.flip-next { animation: flipNext .42s ease; }
+.book-spread.flip-prev { animation: flipPrev .42s ease; }
+@keyframes flipNext {
+  0% { transform: perspective(2200px) rotateY(0deg); }
+  45% { transform: perspective(2200px) rotateY(-9deg); }
+  100% { transform: perspective(2200px) rotateY(0deg); }
+}
+@keyframes flipPrev {
+  0% { transform: perspective(2200px) rotateY(0deg); }
+  45% { transform: perspective(2200px) rotateY(9deg); }
+  100% { transform: perspective(2200px) rotateY(0deg); }
+}
+
+/* ---- Edge nav buttons ---- */
+.nav-edge {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 15;
+  width: 52px; height: 52px; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,.9); border: 1px solid var(--line); color: var(--accent);
+  box-shadow: var(--shadow-sm); transition: all .15s ease;
+}
+.nav-edge:hover { background: var(--accent); color: #fff; transform: translateY(-50%) scale(1.07); }
+.nav-edge:disabled { opacity: .35; cursor: not-allowed; }
+.nav-prev { left: 12px; }
+.nav-next { right: 12px; }
+
+/* ---- Bottom controls ---- */
+.reader-foot {
+  flex: 0 0 auto; height: 64px; display: flex; align-items: center; gap: 18px;
+  padding: 0 22px; background: rgba(246,247,253,.85); backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line); z-index: 20;
+}
+.page-slider { flex: 1; display: flex; align-items: center; gap: 14px; max-width: 620px; margin: 0 auto; }
+.page-slider input[type=range] {
+  flex: 1; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px;
+  background: var(--accent-soft); cursor: pointer;
+}
+.page-slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+}
+.page-slider input[type=range]::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 50%; border: 2px solid #fff;
+  background: var(--accent);
+}
+.page-label { font-size: 14px; font-weight: 600; color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 760px) {
+  .stage { padding: 14px 8px; }
+  .nav-edge { width: 42px; height: 42px; }
+  .nav-prev { left: 4px; } .nav-next { right: 4px; }
+  .reader-title { font-size: 14px; }
+  .rb.wide span, .rb.wide { font-size: 13px; }
+  .reader-foot { gap: 8px; padding: 0 10px; }
+  .rb.wide { padding: 0 12px; }
+}

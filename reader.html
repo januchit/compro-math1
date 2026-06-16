@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>กำลังเปิดหนังสือ… — ComPro Math 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/reader.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234456c7'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'%3E%CF%80%3C/text%3E%3C/svg%3E" />
+</head>
+<body class="reader-body">
+
+  <!-- Reader top bar -->
+  <header class="reader-bar">
+    <a class="reader-back" href="index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span>ชั้นหนังสือ</span>
+    </a>
+    <div class="reader-title" id="bookTitle">กำลังโหลด…</div>
+    <div class="reader-actions">
+      <button class="rb" id="btnZoomOut" title="ย่อ (-)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 11h6"/></svg>
+      </button>
+      <button class="rb" id="btnZoomIn" title="ขยาย (+)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+      </button>
+      <a class="rb" id="btnDownload" title="ดาวน์โหลด PDF" download>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+      </a>
+      <button class="rb" id="btnFullscreen" title="เต็มจอ (F)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H3v5M21 8V3h-5M16 21h5v-5M3 16v5h5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Loading overlay -->
+  <div class="loader" id="loader">
+    <div class="loader-book">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <p id="loaderText">กำลังเปิดหนังสือ…</p>
+  </div>
+
+  <!-- Flipbook stage -->
+  <main class="stage" id="stage">
+    <button class="nav-edge nav-prev" id="navPrev" aria-label="หน้าก่อนหน้า">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+
+    <div class="book-frame" id="bookFrame">
+      <div class="book-spread" id="spread">
+        <!-- canvases injected by JS -->
+      </div>
+    </div>
+
+    <button class="nav-edge nav-next" id="navNext" aria-label="หน้าถัดไป">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </main>
+
+  <!-- Bottom controls -->
+  <footer class="reader-foot">
+    <button class="rb wide" id="btnPrev">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
+      ก่อนหน้า
+    </button>
+    <div class="page-slider">
+      <input type="range" id="pageRange" min="1" max="1" value="1" />
+      <span class="page-label"><span id="pageCur">1</span> / <span id="pageTotal">–</span></span>
+    </div>
+    <button class="rb wide" id="btnNext">
+      ถัดไป
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </footer>
+
+  <!-- Flipbook engine (imports PDF.js as a module) -->
+  <script type="module" src="assets/js/reader.js"></script>
+</body>
+</html>
