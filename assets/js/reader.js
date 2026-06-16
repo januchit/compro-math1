@@ -30,7 +30,7 @@ let pdfDoc = null;
 let numPages = 0;
 let spreadIndex = 0;       // 0-based; pages (2s+1, 2s+2)
 let zoom = 1;
-let twoPage = window.innerWidth > 820;
+let twoPage = false  /* single-page mode: one slide fills the view */;
 let rendering = false;
 const pageCache = new Map(); // pageNum -> rendered canvas (at current layout)
 let layoutKey = '';          // invalidates cache when size/zoom changes
@@ -98,7 +98,7 @@ async function renderPageCanvas(pageNum, fitScale) {
 async function render() {
   if (!pdfDoc || rendering) return;
   rendering = true;
-  twoPage = window.innerWidth > 820;
+  twoPage = false  /* single-page mode: one slide fills the view */;
 
   // Compute fit scale from a reference page (page 1 viewport at scale 1)
   const ref = await pdfDoc.getPage(1);
@@ -217,7 +217,7 @@ window.addEventListener('resize', () => {
     const wasTwo = twoPage;
     const firstNow = currentFirstPage();
     pageCache.clear();
-    twoPage = window.innerWidth > 820;
+    twoPage = false  /* single-page mode: one slide fills the view */;
     if (wasTwo !== twoPage) spreadIndex = twoPage ? Math.floor((firstNow - 1) / 2) : (firstNow - 1);
     render();
   }, 180);
