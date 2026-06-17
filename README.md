@@ -16,6 +16,13 @@
 | 1 | Introduction to Computers and Python | 40 |
 | 2 | Variables, Input and Output | 40 |
 | 3 | Using Standard Libraries | 40 |
+| 4 | Conditional Structure | 40 |
+| 5 | For Loops | 40 |
+| 6 | List Data Structures | 40 |
+| 7 | While Loops | 40 |
+| 8 | Dictionaries and Sets | 40 |
+| 9 | Functions | 40 |
+| 10 | Numerical Computing with NumPy | 40 |
 
 ## คุณสมบัติ
 

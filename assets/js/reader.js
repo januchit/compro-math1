@@ -7,9 +7,16 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 /* ---- Book catalogue ---- */
 const BOOKS = {
-  'chapter-1': { file: 'books/chapter-1.pdf', title: 'บทที่ 1 · Introduction to Computers and Python' },
-  'chapter-2': { file: 'books/chapter-2.pdf', title: 'บทที่ 2 · Variables, Input and Output' },
-  'chapter-3': { file: 'books/chapter-3.pdf', title: 'บทที่ 3 · Using Standard Libraries' },
+  'chapter-1':  { file: 'books/chapter-1.pdf',  title: 'บทที่ 1 · Introduction to Computers and Python' },
+  'chapter-2':  { file: 'books/chapter-2.pdf',  title: 'บทที่ 2 · Variables, Input and Output' },
+  'chapter-3':  { file: 'books/chapter-3.pdf',  title: 'บทที่ 3 · Using Standard Libraries' },
+  'chapter-4':  { file: 'books/chapter-4.pdf',  title: 'บทที่ 4 · Conditional Structure' },
+  'chapter-5':  { file: 'books/chapter-5.pdf',  title: 'บทที่ 5 · For Loops' },
+  'chapter-6':  { file: 'books/chapter-6.pdf',  title: 'บทที่ 6 · List Data Structures' },
+  'chapter-7':  { file: 'books/chapter-7.pdf',  title: 'บทที่ 7 · While Loops' },
+  'chapter-8':  { file: 'books/chapter-8.pdf',  title: 'บทที่ 8 · Dictionaries and Sets' },
+  'chapter-9':  { file: 'books/chapter-9.pdf',  title: 'บทที่ 9 · Functions' },
+  'chapter-10': { file: 'books/chapter-10.pdf', title: 'บทที่ 10 · Numerical Computing with NumPy' },
 };
 
 /* ---- DOM ---- */
