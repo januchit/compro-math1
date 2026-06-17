@@ -1,6 +1,6 @@
 # Computer Programming for Mathematics 1 — 040223101
 
-หนังสือเรียนออนไลน์ธีมอนิเมะ สำหรับวิชา **Computer Programming for Mathematics 1 (040223101)**
+หนังสือเรียนออนไลน์ สำหรับวิชา **Computer Programming for Mathematics 1 (040223101)**
 ภาควิชาคณิตศาสตร์ คณะวิทยาศาสตร์ประยุกต์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (KMUTNB)
 
 🌐 **เว็บไซต์:** https://januchit.github.io/compro-math1/
