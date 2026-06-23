@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แบบฝึกหัด — Computer Programming for Mathematics 1 (040223101)</title>
+  <meta name="description" content="แบบฝึกหัด Python รายบท เปิดทำได้ทันทีบน Google Colab — วิชา Computer Programming for Mathematics 1 (040223101), KMUTNB" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234456c7'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'%3E%CF%80%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* แบบฝึกหัด — small additions reusing the existing design system */
+    .book-meta .open.colab { color: #e8710a; }
+    .book-cover.ex { display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--accent-soft) 0%, #eef0fb 100%); }
+    .book-cover.ex .ex-num { font-family: var(--serif); font-size: 64px; font-weight: 700;
+      color: var(--accent); line-height: 1; opacity: .9; }
+    .book-cover.ex .ex-sub { position: absolute; bottom: 14px; font-size: 13px; font-weight: 600;
+      color: var(--ink-soft); letter-spacing: .04em; }
+    .levels { display: inline-flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+    .lvl { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+    .lvl.b { background: #e3f0ff; color: #1f6fc4; }
+    .lvl.i { background: #fff0db; color: #b9740a; }
+    .lvl.c { background: #ffe2e2; color: #c0392b; }
+    .howto { background: rgba(255,255,255,.7); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 26px 28px; max-width: 56em; margin: 0 auto; }
+    .howto h3 { font-size: 19px; color: var(--ink); margin-bottom: 12px; }
+    .howto ol { margin: 0; padding-left: 1.3em; color: var(--ink-soft); line-height: 1.9; font-size: 15px; }
+    .howto ol code { background: var(--accent-bg); padding: 1px 7px; border-radius: 6px;
+      font-size: 13.5px; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <span class="logo">π</span>
+        <span>ComPro Math 1
+          <small>040223101 · KMUTNB</small>
+        </span>
+      </a>
+      <nav class="topnav">
+        <a href="index.html#books">หนังสือเรียน</a>
+        <a href="exercises.html">แบบฝึกหัด</a>
+        <a href="index.html#about">เกี่ยวกับวิชา</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page head -->
+  <section class="section" id="exercises" style="padding-top: 56px;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">🧪 Hands-on Practice</span>
+        <h2>แบบฝึกหัดประจำวิชา</h2>
+        <p>
+          ฝึกเขียนโปรแกรม Python รายบทบน Google Colab รันโค้ดได้ทันทีบนเบราว์เซอร์ ไม่ต้องติดตั้งอะไร
+          แต่ละบทมี <strong>50 ข้อ</strong> แบ่งเป็น 3 ระดับ — พื้นฐาน ปานกลาง และท้าทาย
+        </p>
+      </div>
+
+      <div class="shelf">
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-1.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">1</span>
+            <span class="ex-sub">CHAPTER 1</span>
+            <span class="ch-badge">บทที่ 1</span>
+          </div>
+          <div class="book-body">
+            <h3>แนะนำคอมพิวเตอร์และ Python</h3>
+            <p>แสดงผลด้วย print() การคำนวณเลขคณิตพื้นฐาน บวก ลบ คูณ หาร และยกกำลัง โปรแกรมแรกด้วย Python</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-2.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">2</span>
+            <span class="ex-sub">CHAPTER 2</span>
+            <span class="ch-badge">บทที่ 2</span>
+          </div>
+          <div class="book-body">
+            <h3>ตัวแปร การรับและแสดงผลข้อมูล</h3>
+            <p>กำหนดตัวแปรและชนิดข้อมูล รับค่าด้วย input() แปลงชนิดข้อมูลด้วย int()/float() และจัดรูปแบบด้วย f-string</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-3.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">3</span>
+            <span class="ex-sub">CHAPTER 3</span>
+            <span class="ch-badge">บทที่ 3</span>
+          </div>
+          <div class="book-body">
+            <h3>การใช้ไลบรารีสำเร็จรูป</h3>
+            <p>เรียกใช้มอดูล math และ random — รากที่สอง แฟกทอเรียล ปัดเศษ ค่าคงที่ pi/e และ ห.ร.ม.</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-4.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">4</span>
+            <span class="ex-sub">CHAPTER 4</span>
+            <span class="ch-badge">บทที่ 4</span>
+          </div>
+          <div class="book-body">
+            <h3>โครงสร้างการตัดสินใจ</h3>
+            <p>เงื่อนไขด้วย if / if-else / if-elif-else ตัวดำเนินการเปรียบเทียบและตรรกะ การตรวจคู่-คี่ ผ่าน-ไม่ผ่าน</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-5.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">5</span>
+            <span class="ex-sub">CHAPTER 5</span>
+            <span class="ch-badge">บทที่ 5</span>
+          </div>
+          <div class="book-body">
+            <h3>การทำซ้ำแบบกำหนดรอบ (For Loops)</h3>
+            <p>วนซ้ำด้วย for และ range() หาผลรวม ผลคูณ เลขคู่-คี่ นับถอยหลัง และอนุกรมทางคณิตศาสตร์</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-6.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">6</span>
+            <span class="ex-sub">CHAPTER 6</span>
+            <span class="ch-badge">บทที่ 6</span>
+          </div>
+          <div class="book-body">
+            <h3>โครงสร้างข้อมูลแบบลิสต์</h3>
+            <p>สร้างและเข้าถึงสมาชิกลิสต์ len()/sum()/min()/max() การหาค่าเฉลี่ย append และ sort</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-7.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">7</span>
+            <span class="ex-sub">CHAPTER 7</span>
+            <span class="ch-badge">บทที่ 7</span>
+          </div>
+          <div class="book-body">
+            <h3>การทำซ้ำแบบมีเงื่อนไข (While Loops)</h3>
+            <p>วนซ้ำด้วย while เงื่อนไขการหยุด การหาผลรวม ผลคูณ การนับ และเลี่ยง infinite loop</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-8.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">8</span>
+            <span class="ex-sub">CHAPTER 8</span>
+            <span class="ch-badge">บทที่ 8</span>
+          </div>
+          <div class="book-body">
+            <h3>ดิกชันนารีและเซต</h3>
+            <p>ดิกชันนารีแบบ key-value keys()/values()/items() การเพิ่ม-แก้ไขข้อมูล เซตและการตรวจสมาชิก</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-9.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">9</span>
+            <span class="ex-sub">CHAPTER 9</span>
+            <span class="ch-badge">บทที่ 9</span>
+          </div>
+          <div class="book-body">
+            <h3>ฟังก์ชัน</h3>
+            <p>นิยามฟังก์ชันด้วย def พารามิเตอร์และอาร์กิวเมนต์ การคืนค่า และการเขียนโปรแกรมเชิงโมดูล</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/chapter-10.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">10</span>
+            <span class="ex-sub">CHAPTER 10</span>
+            <span class="ch-badge">บทที่ 10</span>
+          </div>
+          <div class="book-body">
+            <h3>การคำนวณเชิงตัวเลขด้วย NumPy</h3>
+            <p>สร้างอาร์เรย์ NumPy ด้วย array/zeros/ones/arange/linspace การคำนวณแบบเวกเตอร์ sum/mean/min/max</p>
+            <div class="levels">
+              <span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span>
+            </div>
+            <div class="book-meta">
+              <span class="pages">📝 50 ข้อ</span>
+              <span class="open colab">เปิดใน Colab
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How to use -->
+  <section class="section" id="howto" style="padding-top: 0;">
+    <div class="container">
+      <div class="howto">
+        <h3>📌 วิธีใช้งานแบบฝึกหัด</h3>
+        <ol>
+          <li>คลิกการ์ดบทที่ต้องการ ระบบจะเปิดโน้ตบุ๊กบน <strong>Google Colab</strong> (ควรลงชื่อเข้าใช้ด้วยบัญชี Google ก่อน)</li>
+          <li>ที่ Colab เลือกเมนู <code>File → Save a copy in Drive</code> เพื่อบันทึกสำเนาไว้แก้ของตัวเอง</li>
+          <li>พิมพ์คำตอบในเซลล์โค้ดใต้แต่ละข้อ แล้วกด <code>Shift + Enter</code> เพื่อรันและดูผลลัพธ์</li>
+          <li>ทำให้ครบทั้ง 3 ระดับ — เริ่มจากพื้นฐาน แล้วไต่ไปปานกลางและท้าทาย</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© 2569 (2026) · Department of Mathematics, Faculty of Applied Science, KMUTNB</span>
+      <span>Assoc. Prof. Dr. Anuchit Jitpattanakul</span>
+    </div>
+  </footer>
+</body>
+</html>
