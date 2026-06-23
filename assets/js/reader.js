@@ -7,6 +7,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 /* ---- Book catalogue ---- */
 const BOOKS = {
+  'chapter-0':  { file: 'books/chapter-0.pdf',  title: 'แนะนำรายวิชา · Course Introduction' },
   'chapter-1':  { file: 'books/chapter-1.pdf',  title: 'บทที่ 1 · Introduction to Computers and Python' },
   'chapter-2':  { file: 'books/chapter-2.pdf',  title: 'บทที่ 2 · Variables, Input and Output' },
   'chapter-3':  { file: 'books/chapter-3.pdf',  title: 'บทที่ 3 · Using Standard Libraries' },
