@@ -10,6 +10,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234456c7'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'%3E%CF%80%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* ปุ่มสลับ สไลด์ / เอกสาร */
+    .shelf[hidden] { display: none; }
+    .seg-wrap { text-align: center; margin-bottom: 34px; }
+    .segmented { display: inline-flex; background: #fff; border: 1px solid var(--line);
+      border-radius: 999px; padding: 5px; gap: 4px; box-shadow: var(--shadow-sm); }
+    .segmented button { border: none; background: none; cursor: pointer; font-family: inherit;
+      padding: 9px 20px; border-radius: 999px; font-size: 14.5px; font-weight: 600;
+      color: var(--ink-soft); transition: all .15s ease; white-space: nowrap; }
+    .segmented button:hover { color: var(--accent); }
+    .segmented button.seg-active {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #fff; box-shadow: var(--shadow-sm); }
+    .book-cover .doc-tag { position: absolute; top: 12px; left: 12px; z-index: 2;
+      font-size: 11.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.92); color: var(--accent); box-shadow: var(--shadow-sm); }
+  </style>
 </head>
 <body>
   <!-- Top bar -->
@@ -68,7 +85,15 @@
         <h2>ชั้นหนังสือประจำวิชา</h2>
         <p>เลือกบทเรียนที่ต้องการ แล้วเปิดอ่านแบบพลิกหน้าได้ทันทีบนเบราว์เซอร์ ไม่ต้องดาวน์โหลด</p>
       </div>
-      <div class="shelf">
+
+      <div class="seg-wrap">
+        <div class="segmented" id="bookTabs">
+          <button type="button" class="seg-active" data-shelf="slides">📊 สไลด์ประกอบการสอน</button>
+          <button type="button" data-shelf="docs">📄 เอกสารประกอบการสอน</button>
+        </div>
+      </div>
+
+      <div class="shelf" id="shelf-slides">
 
         <a class="book" href="reader.html?book=chapter-1">
           <div class="book-cover">
@@ -251,6 +276,200 @@
         </a>
 
       </div>
+
+      <div class="shelf" id="shelf-docs" hidden>
+
+        <a class="book" href="reader.html?book=doc-1">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-1.jpg" alt="ปกเอกสารบทที่ 1" />
+            <span class="ch-badge">บทที่ 1</span>
+          </div>
+          <div class="book-body">
+            <h3>Introduction to Computers and Python</h3>
+            <p>องค์ประกอบของระบบคอมพิวเตอร์ แนวคิด IPO ภาษาระดับสูงกับภาษาเครื่อง การติดตั้ง Python และโปรแกรมแรก</p>
+            <div class="book-meta">
+              <span class="pages">📄 7 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-2">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-2.jpg" alt="ปกเอกสารบทที่ 2" />
+            <span class="ch-badge">บทที่ 2</span>
+          </div>
+          <div class="book-body">
+            <h3>Variables, Input and Output</h3>
+            <p>ตัวแปรและชนิดข้อมูล การรับค่าจากผู้ใช้ด้วย input() การแสดงผลด้วย print() และการจัดรูปแบบข้อความ</p>
+            <div class="book-meta">
+              <span class="pages">📄 8 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-3">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-3.jpg" alt="ปกเอกสารบทที่ 3" />
+            <span class="ch-badge">บทที่ 3</span>
+          </div>
+          <div class="book-body">
+            <h3>Using Standard Libraries</h3>
+            <p>การเรียกใช้ไลบรารีมาตรฐานของ Python เช่น math และ random เพื่อแก้ปัญหาทางคณิตศาสตร์</p>
+            <div class="book-meta">
+              <span class="pages">📄 6 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-4">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-4.jpg" alt="ปกเอกสารบทที่ 4" />
+            <span class="ch-badge">บทที่ 4</span>
+          </div>
+          <div class="book-body">
+            <h3>Conditional Structure</h3>
+            <p>นิพจน์เงื่อนไข ตัวดำเนินการเปรียบเทียบและตรรกะ คำสั่ง if / if-else / if-elif-else การย่อหน้า และ if ซ้อนชั้น</p>
+            <div class="book-meta">
+              <span class="pages">📄 6 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-5">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-5.jpg" alt="ปกเอกสารบทที่ 5" />
+            <span class="ch-badge">บทที่ 5</span>
+          </div>
+          <div class="book-body">
+            <h3>For Loops</h3>
+            <p>การวนซ้ำด้วย for และ range() การคำนวณผลรวม ผลคูณ อนุกรม ลูปซ้อน และตารางสูตรคูณ</p>
+            <div class="book-meta">
+              <span class="pages">📄 6 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-6">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-6.jpg" alt="ปกเอกสารบทที่ 6" />
+            <span class="ch-badge">บทที่ 6</span>
+          </div>
+          <div class="book-body">
+            <h3>List Data Structures</h3>
+            <p>การสร้างและเข้าถึงสมาชิกลิสต์ การ slice เมท็อด append/insert/remove/sort และการวนลูปผ่านลิสต์</p>
+            <div class="book-meta">
+              <span class="pages">📄 6 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-7">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-7.jpg" alt="ปกเอกสารบทที่ 7" />
+            <span class="ch-badge">บทที่ 7</span>
+          </div>
+          <div class="book-body">
+            <h3>While Loops</h3>
+            <p>เปรียบเทียบ while กับ for เงื่อนไขการหยุด การเลี่ยง infinite loop คำสั่ง break/continue และงานคำนวณเชิงตัวเลข</p>
+            <div class="book-meta">
+              <span class="pages">📄 5 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-8">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-8.jpg" alt="ปกเอกสารบทที่ 8" />
+            <span class="ch-badge">บทที่ 8</span>
+          </div>
+          <div class="book-body">
+            <h3>Dictionaries and Sets</h3>
+            <p>ดิกชันนารีแบบ key-value เมท็อด keys/values/items/get เซตและการดำเนินการ union/intersection/difference การนับและจัดกลุ่มข้อมูล</p>
+            <div class="book-meta">
+              <span class="pages">📄 5 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-9">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-9.jpg" alt="ปกเอกสารบทที่ 9" />
+            <span class="ch-badge">บทที่ 9</span>
+          </div>
+          <div class="book-body">
+            <h3>Functions</h3>
+            <p>การเขียนโปรแกรมเชิงโมดูล นิยามฟังก์ชันด้วย def พารามิเตอร์/อาร์กิวเมนต์ ขอบเขตตัวแปร ค่าเริ่มต้น การคืนค่าหลายค่า และ recursion</p>
+            <div class="book-meta">
+              <span class="pages">📄 7 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="book" href="reader.html?book=doc-10">
+          <div class="book-cover">
+            <span class="spine"></span>
+            <span class="doc-tag">เอกสาร</span>
+            <img src="assets/img/covers/chapter-10.jpg" alt="ปกเอกสารบทที่ 10" />
+            <span class="ch-badge">บทที่ 10</span>
+          </div>
+          <div class="book-body">
+            <h3>Numerical Computing with NumPy</h3>
+            <p>ข้อดีของอาเรย์ NumPy การสร้างอาเรย์ 1D/2D การคำนวณแบบเวกเตอร์ การดำเนินการเมทริกซ์ และแก้ระบบสมการเชิงเส้น</p>
+            <div class="book-meta">
+              <span class="pages">📄 6 หน้า</span>
+              <span class="open">เปิดอ่าน
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
     </div>
   </section>
 
@@ -310,5 +529,29 @@
       <span>Assoc. Prof. Dr. Anuchit Jitpattanakul</span>
     </div>
   </footer>
+  <script>
+    // สลับชั้นหนังสือ: สไลด์ / เอกสาร
+    (function () {
+      var tabs = document.getElementById('bookTabs');
+      if (!tabs) return;
+      var shelves = { slides: document.getElementById('shelf-slides'),
+                      docs:   document.getElementById('shelf-docs') };
+      tabs.addEventListener('click', function (e) {
+        var btn = e.target.closest('button[data-shelf]');
+        if (!btn) return;
+        var key = btn.getAttribute('data-shelf');
+        Array.prototype.forEach.call(tabs.querySelectorAll('button'), function (b) {
+          b.classList.toggle('seg-active', b === btn);
+        });
+        for (var k in shelves) { if (shelves[k]) shelves[k].hidden = (k !== key); }
+        if (history.replaceState) history.replaceState(null, '', key === 'docs' ? '#docs' : '#books');
+      });
+      // เปิดแท็บเอกสารอัตโนมัติเมื่อเข้าด้วย #docs
+      if (location.hash === '#docs') {
+        var b = tabs.querySelector('button[data-shelf="docs"]');
+        if (b) b.click();
+      }
+    })();
+  </script>
 </body>
 </html>

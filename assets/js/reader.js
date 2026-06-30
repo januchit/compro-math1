@@ -18,6 +18,18 @@ const BOOKS = {
   'chapter-8':  { file: 'books/chapter-8.pdf',  title: 'บทที่ 8 · Dictionaries and Sets' },
   'chapter-9':  { file: 'books/chapter-9.pdf',  title: 'บทที่ 9 · Functions' },
   'chapter-10': { file: 'books/chapter-10.pdf', title: 'บทที่ 10 · Numerical Computing with NumPy' },
+
+  /* ---- เอกสารประกอบการสอน (lecture handouts) ---- */
+  'doc-1':  { file: 'docs/chapter-1.pdf',  title: 'เอกสารบทที่ 1 · แนะนำคอมพิวเตอร์และภาษา Python' },
+  'doc-2':  { file: 'docs/chapter-2.pdf',  title: 'เอกสารบทที่ 2 · ตัวแปร การรับและการแสดงผลข้อมูล' },
+  'doc-3':  { file: 'docs/chapter-3.pdf',  title: 'เอกสารบทที่ 3 · การใช้ไลบรารีสำเร็จรูป' },
+  'doc-4':  { file: 'docs/chapter-4.pdf',  title: 'เอกสารบทที่ 4 · โครงสร้างการตัดสินใจ' },
+  'doc-5':  { file: 'docs/chapter-5.pdf',  title: 'เอกสารบทที่ 5 · โครงสร้างการทำซ้ำ For Loops' },
+  'doc-6':  { file: 'docs/chapter-6.pdf',  title: 'เอกสารบทที่ 6 · โครงสร้างข้อมูลแบบลิสต์' },
+  'doc-7':  { file: 'docs/chapter-7.pdf',  title: 'เอกสารบทที่ 7 · โครงสร้างการทำซ้ำ While Loops' },
+  'doc-8':  { file: 'docs/chapter-8.pdf',  title: 'เอกสารบทที่ 8 · ดิกชันนารีและเซต' },
+  'doc-9':  { file: 'docs/chapter-9.pdf',  title: 'เอกสารบทที่ 9 · ฟังก์ชัน' },
+  'doc-10': { file: 'docs/chapter-10.pdf', title: 'เอกสารบทที่ 10 · การคำนวณเชิงตัวเลขด้วย NumPy' },
 };
 
 /* ---- DOM ---- */
