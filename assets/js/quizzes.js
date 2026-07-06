@@ -1,7 +1,7 @@
 /* ============================================================
    หน้ารวมแบบทดสอบ — แถบความก้าวหน้า + เหรียญ 3 ระดับ
    ============================================================ */
-import { QUIZ, MEDAL_INFO, medalOf } from './quiz-data.js';
+import { QUIZ, MEDAL_INFO, medalOf } from './quiz-data.js?v=2';
 
 const storeKey = (c) => `compro-quiz-ch${c}`;
 function loadResult(c) {

@@ -1,7 +1,7 @@
 /* ============================================================
    เอนจินแบบทดสอบท้ายบท (MCQ) — ระบบเหรียญ 3 ระดับ
    ============================================================ */
-import { QUIZ, MEDAL_INFO, medalOf } from './quiz-data.js';
+import { QUIZ, MEDAL_INFO, medalOf } from './quiz-data.js?v=2';
 
 const params = new URLSearchParams(location.search);
 const ch = parseInt(params.get('ch') || '1', 10);
