@@ -27,7 +27,9 @@
     .prog-box { background: rgba(255,255,255,.75); border: 1px solid var(--line);
       border-radius: var(--radius); padding: 26px 28px; max-width: 640px; margin: 0 auto 40px;
       text-align: center; box-shadow: var(--shadow-sm); }
-    #medalRow { font-size: 24px; letter-spacing: 3px; margin-bottom: 14px; }
+    #medalRow { display: flex; justify-content: center; gap: 20px; margin-bottom: 16px; }
+    #medalRow .mcount { font-size: 22px; font-weight: 700; color: var(--ink);
+      display: inline-flex; align-items: center; gap: 6px; }
     #progLabel { font-size: 16px; color: var(--ink); margin-bottom: 10px; }
     .prog-track { height: 14px; background: var(--accent-soft); border-radius: 999px; overflow: hidden; }
     .prog-fill { height: 100%; width: 0; border-radius: 999px;
@@ -58,7 +60,8 @@
       <div class="section-head">
         <span class="eyebrow">🎯 Quizzes &amp; Badges</span>
         <h2>แบบทดสอบท้ายบท</h2>
-        <p>ทดสอบความเข้าใจแต่ละบทด้วยคำถามปรนัย รู้ผลทันทีพร้อมคำอธิบาย ทำผ่าน 80% รับเหรียญประจำบท
+        <p>ทดสอบความเข้าใจแต่ละบทด้วยคำถามปรนัย <strong>บทละ 20 ข้อ</strong> รู้ผลทันทีพร้อมคำอธิบาย
+          ทำถูกครบ 20 ข้อรับ 🥇 ทอง · อย่างน้อย 15 ข้อรับ 🥈 เงิน · อย่างน้อย 10 ข้อรับ 🥉 ทองแดง
           ความก้าวหน้าจะถูกบันทึกไว้ในเบราว์เซอร์เครื่องนี้</p>
       </div>
 

@@ -1,7 +1,7 @@
 /* ============================================================
-   เอนจินแบบทดสอบท้ายบท (MCQ)
+   เอนจินแบบทดสอบท้ายบท (MCQ) — ระบบเหรียญ 3 ระดับ
    ============================================================ */
-import { QUIZ, PASS } from './quiz-data.js';
+import { QUIZ, MEDAL_INFO, medalOf } from './quiz-data.js';
 
 const params = new URLSearchParams(location.search);
 const ch = parseInt(params.get('ch') || '1', 10);
@@ -14,12 +14,11 @@ function loadResult(c) {
   try { return JSON.parse(localStorage.getItem(storeKey(c))) || null; }
   catch { return null; }
 }
-function saveResult(c, percent, passed) {
+function saveResult(c, score, total) {
   const prev = loadResult(c);
-  const best = prev ? Math.max(prev.best, percent) : percent;
-  const everPassed = (prev && prev.passed) || passed;
+  const best = prev ? Math.max(prev.best || 0, score) : score;
   localStorage.setItem(storeKey(c), JSON.stringify({
-    best, passed: everPassed, last: percent, date: new Date().toISOString()
+    best, total, last: score, date: new Date().toISOString()
   }));
 }
 
@@ -27,18 +26,18 @@ if (!data) {
   $('quizArea').innerHTML =
     '<p style="text-align:center">ไม่พบแบบทดสอบของบทนี้ · <a href="quizzes.html">กลับไปหน้าแบบทดสอบ</a></p>';
 } else {
+  const total = data.questions.length;
   document.title = `แบบทดสอบ บทที่ ${ch} — ComPro Math 1`;
   $('quizChTitle').textContent = `บทที่ ${ch} · ${data.title}`;
   const prev = loadResult(ch);
   if (prev) {
+    const m = medalOf(prev.best, prev.total || total);
     $('prevScore').innerHTML =
-      `สถิติเดิม: คะแนนสูงสุด <strong>${prev.best}%</strong>` +
-      (prev.passed ? ' · 🏅 ผ่านแล้ว' : '');
+      `สถิติเดิม: ทำถูกสูงสุด <strong>${prev.best}/${prev.total || total}</strong> ข้อ` +
+      (m ? ` · ${MEDAL_INFO[m].icon} ${MEDAL_INFO[m].name}` : '');
   }
   renderQuestions();
 }
-
-let answered = null; // เก็บว่าตรวจไปแล้วหรือยัง
 
 function renderQuestions() {
   const wrap = $('questions');
@@ -77,7 +76,6 @@ $('submitBtn').addEventListener('click', () => {
       lb.classList.remove('correct', 'wrong');
       lb.querySelector('input').disabled = true;
     });
-    // เฉลยตัวที่ถูกเสมอ
     const correctLb = card.querySelector(`.choice[data-c="${item.answer}"]`);
     correctLb.classList.add('correct');
     if (!sel) { unanswered++; }
@@ -92,20 +90,34 @@ $('submitBtn').addEventListener('click', () => {
   });
 
   const total = data.questions.length;
-  const percent = Math.round((score / total) * 100);
-  const passed = percent >= PASS;
-  saveResult(ch, percent, passed);
+  saveResult(ch, score, total);
+  const medal = medalOf(score, total);
 
   const panel = $('resultPanel');
   panel.hidden = false;
-  panel.className = 'result-panel ' + (passed ? 'pass' : 'fail');
-  $('resultIcon').textContent = passed ? '🏅' : '📚';
-  $('resultText').innerHTML =
-    `ได้ <strong>${score}/${total}</strong> ข้อ (${percent}%)<br>` +
-    (passed
-      ? 'ยอดเยี่ยม! ผ่านเกณฑ์แล้ว ได้รับเหรียญประจำบทนี้ 🎉'
-      : `ยังไม่ผ่านเกณฑ์ (${PASS}%) ลองทบทวนคำอธิบายแล้วทำใหม่อีกครั้งนะ`) +
-    (unanswered ? `<br><small style="color:var(--muted)">มี ${unanswered} ข้อที่ยังไม่ได้เลือกคำตอบ</small>` : '');
+  panel.className = 'result-panel ' + (medal ? 'pass' : 'fail');
+  $('resultIcon').textContent = medal ? MEDAL_INFO[medal].icon : '📚';
+
+  let msg = `ทำถูก <strong>${score}/${total}</strong> ข้อ<br>`;
+  if (medal) {
+    msg += `ได้รับ <strong>${MEDAL_INFO[medal].name} ${MEDAL_INFO[medal].icon}</strong> ประจำบทนี้!`;
+    if (medal !== 'gold') {
+      const need = (medal === 'silver') ? 20 : 15;
+      const nextName = (medal === 'silver') ? 'เหรียญทอง' : 'เหรียญเงิน';
+      msg += `<br><small style="color:var(--muted)">อีกนิดเดียว! ทำถูก ${need} ข้อ รับ${nextName}</small>`;
+    } else {
+      msg += '<br>🎉 สุดยอด! ทำถูกครบทุกข้อ';
+    }
+  } else {
+    msg += `ยังไม่ได้เหรียญ (ต้องทำถูกอย่างน้อย 10 ข้อ) ลองทบทวนคำอธิบายแล้วทำใหม่นะ`;
+  }
+  if (unanswered) {
+    msg += `<br><small style="color:var(--muted)">มี ${unanswered} ข้อที่ยังไม่ได้เลือกคำตอบ</small>`;
+  }
+  $('resultText').innerHTML = msg;
+
+  $('medalHint').innerHTML =
+    'เกณฑ์เหรียญ: 🥇 ทอง = ถูกครบ 20 ข้อ · 🥈 เงิน = ถูก 15–19 ข้อ · 🥉 ทองแดง = ถูก 10–14 ข้อ';
 
   $('submitBtn').hidden = true;
   $('retryBtn').hidden = false;

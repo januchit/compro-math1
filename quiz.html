@@ -46,6 +46,9 @@
     .result-panel.fail { background: #fdf3e8; border-color: #f0d3a8; }
     #resultIcon { font-size: 52px; line-height: 1; }
     #resultText { margin-top: 12px; font-size: 17px; color: var(--ink); line-height: 1.6; }
+    #medalHint { margin-top: 14px; font-size: 13px; color: var(--muted);
+      background: rgba(255,255,255,.6); border: 1px solid var(--line);
+      border-radius: 10px; padding: 8px 14px; display: inline-block; }
   </style>
 </head>
 <body>
@@ -81,6 +84,7 @@
         <div class="result-panel" id="resultPanel" hidden>
           <div id="resultIcon"></div>
           <div id="resultText"></div>
+          <div id="medalHint"></div>
           <div class="quiz-actions" style="margin-bottom:0;">
             <button class="btn btn-ghost" id="retryBtn" hidden>ทำอีกครั้ง</button>
             <a class="btn btn-ghost" href="quizzes.html">ดูแบบทดสอบทั้งหมด</a>
