@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แบบฝึกหัดเตรียมสอบ — Computer Programming for Mathematics 1 (040223101)</title>
+  <meta name="description" content="แบบฝึกหัดเตรียมสอบ Python บน Google Colab — เตรียมสอบกลางภาคและปลายภาค วิชา Computer Programming for Mathematics 1 (040223101), KMUTNB" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234456c7'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'%3E%CF%80%3C/text%3E%3C/svg%3E" />
+  <style>
+    .book-meta .open.colab { color: #e8710a; }
+    .book-cover.ex { display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--accent-soft) 0%, #eef0fb 100%); }
+    .book-cover.ex .ex-num { font-family: var(--serif); font-size: 54px; font-weight: 700;
+      color: var(--accent); line-height: 1; opacity: .9; text-align: center; }
+    .book-cover.ex .ex-sub { position: absolute; bottom: 14px; font-size: 13px; font-weight: 600;
+      color: var(--ink-soft); letter-spacing: .04em; }
+    .levels { display: inline-flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+    .lvl { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+    .lvl.b { background: #e3f0ff; color: #1f6fc4; }
+    .lvl.i { background: #fff0db; color: #b9740a; }
+    .lvl.c { background: #ffe2e2; color: #c0392b; }
+    .book.soon { opacity: .6; pointer-events: none; }
+    .book.soon .book-cover.ex { filter: grayscale(.5); }
+    .soon-tag { font-size: 13px; font-weight: 600; color: var(--muted); }
+    .howto { background: rgba(255,255,255,.7); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 26px 28px; max-width: 56em; margin: 0 auto; }
+    .howto h3 { font-size: 19px; color: var(--ink); margin-bottom: 12px; }
+    .howto ol { margin: 0; padding-left: 1.3em; color: var(--ink-soft); line-height: 1.9; font-size: 15px; }
+    .howto code { background: var(--accent-bg); padding: 1px 7px; border-radius: 6px;
+      font-size: 13.5px; color: var(--accent); }
+    /* ปุ่มสลับโหมด */
+    .segmented { display: inline-flex; background: #fff; border: 1px solid var(--line);
+      border-radius: 999px; padding: 5px; gap: 4px; box-shadow: var(--shadow-sm); margin: 0 auto 34px; }
+    .segmented a { padding: 9px 20px; border-radius: 999px; font-size: 14.5px; font-weight: 600;
+      color: var(--ink-soft); transition: all .15s ease; white-space: nowrap; }
+    .segmented a:hover { text-decoration: none; color: var(--accent); }
+    .segmented a.seg-active { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #fff; box-shadow: var(--shadow-sm); }
+    .seg-wrap { text-align: center; }
+    @media (max-width: 720px) {
+      .seg-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+      .seg-wrap::-webkit-scrollbar { height: 0; }
+      .segmented { font-size: 13px; }
+      .segmented a { padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <span class="logo">π</span>
+        <span>ComPro Math 1
+          <small>040223101 · KMUTNB</small>
+        </span>
+      </a>
+      <nav class="topnav">
+        <a href="index.html#books">หนังสือเรียน</a>
+        <a href="exercises.html">แบบฝึกหัด</a>
+        <a href="quizzes.html">แบบทดสอบ</a>
+        <a href="index.html#about">เกี่ยวกับวิชา</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: 56px;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">📝 Exam Preparation</span>
+        <h2>แบบฝึกหัดเตรียมสอบ</h2>
+        <p>รวมโจทย์หลายบทไว้ในไฟล์เดียว สำหรับทบทวนก่อนสอบ เปิดทำบน Google Colab รันโค้ดได้ทันทีบนเบราว์เซอร์ ไม่ต้องติดตั้งอะไร</p>
+      </div>
+
+      <div class="seg-wrap">
+        <div class="segmented">
+          <a href="exercises.html" class="">✍️ ฝึกทำ</a>
+          <a href="exercises-check.html" class="">✅ ฝึกทำ + ตรวจคำตอบ</a>
+          <a href="exercises-exam.html" class="seg-active">📝 แบบฝึกหัดเตรียมสอบ</a>
+        </div>
+      </div>
+
+      <div class="shelf">
+
+        <a class="book" href="https://colab.research.google.com/github/januchit/compro-math1/blob/main/exercises/exam-midterm.ipynb" target="_blank" rel="noopener">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">สอบ<br />กลางภาค</span>
+            <span class="ex-sub">MIDTERM</span>
+            <span class="ch-badge">บทที่ 1–5</span>
+          </div>
+          <div class="book-body">
+            <h3>แบบฝึกหัดเตรียมสอบกลางภาค</h3>
+            <p>รวมโจทย์ 5 บท (บทที่ 1–5) บทละ 100 ข้อ รวม 500 ข้อ ครอบคลุมเนื้อหาที่ออกสอบกลางภาค — แนะนำ Python, ตัวแปร, ไลบรารี, การตัดสินใจ และ For Loops</p>
+            <div class="levels"><span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span></div>
+            <div class="book-meta">
+              <span class="pages">📝 500 ข้อ</span>
+              <span class="open colab">เปิดใน Colab <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <div class="book soon">
+          <div class="book-cover ex">
+            <span class="spine"></span>
+            <span class="ex-num">สอบ<br />ปลายภาค</span>
+            <span class="ex-sub">FINAL</span>
+            <span class="ch-badge">บทที่ 6–10</span>
+          </div>
+          <div class="book-body">
+            <h3>แบบฝึกหัดเตรียมสอบปลายภาค</h3>
+            <p>รวมโจทย์เตรียมสอบปลายภาค ครอบคลุมเนื้อหา ลิสต์, While Loops, ดิกชันนารีและเซต, ฟังก์ชัน และ NumPy</p>
+            <div class="levels"><span class="lvl b">พื้นฐาน</span><span class="lvl i">ปานกลาง</span><span class="lvl c">ท้าทาย</span></div>
+            <div class="book-meta">
+              <span class="soon-tag">⏳ เร็ว ๆ นี้</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="howto">
+        <h3>📌 วิธีใช้งานแบบฝึกหัดเตรียมสอบ</h3>
+        <ol>
+          <li>คลิกการ์ดชุดที่ต้องการ ระบบจะเปิดโน้ตบุ๊กบน <strong>Google Colab</strong> (ควรลงชื่อเข้าใช้ด้วยบัญชี Google ก่อน)</li>
+          <li>เลือกเมนู <code>File → Save a copy in Drive</code> เพื่อบันทึกสำเนาไว้แก้ของตัวเอง</li>
+          <li>เขียนคำตอบในเซลล์โค้ดใต้แต่ละข้อ แล้วกด <code>Shift + Enter</code> เพื่อรันและดูผลลัพธ์</li>
+          <li>ทำให้ครบทั้ง 3 ระดับ — เริ่มจากพื้นฐาน แล้วไต่ไปปานกลางและท้าทาย</li>
+        </ol>
+        <p style="margin-top:14px;color:var(--muted);font-size:14px;">
+          💡 อยากฝึกทำรายบทก่อน? ไปที่หน้า
+          <a href="exercises.html">แบบฝึกหัด (ฝึกทำ)</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© 2569 (2026) · Department of Mathematics, Faculty of Applied Science, KMUTNB</span>
+      <span>Assoc. Prof. Dr. Anuchit Jitpattanakul</span>
+    </div>
+  </footer>
+</body>
+</html>
